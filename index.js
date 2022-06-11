@@ -5,7 +5,7 @@ const config = require("./commands.json").commands;
 
 const app = express();
 
-const port = 3000;
+const port = 999;
 
 function generateController(command) {
   return (req, res) => {
@@ -14,6 +14,8 @@ function generateController(command) {
     res.status(200).json("success");
   };
 }
+
+console.log({ config });
 
 config.forEach((item) => {
   app.post(item.path, generateController(item.command));
